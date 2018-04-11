@@ -1,14 +1,16 @@
 public class Ball extends MaterialPoint {
     private double radius;
 
+    // Default constructor with reference to superclass
     public Ball() {
         super();
         this.radius = 1.0;
     }
 
+    // Parameterized constructor with reference to superclass
     public Ball(double radius, double mass) {
         super(mass);
-        this.radius = radius;
+        this.setRadius(radius);
     }
 
     public double getRadius() {
@@ -16,6 +18,10 @@ public class Ball extends MaterialPoint {
     }
 
     public void setRadius(double radius) {
+        // Radius cannot be less than zero
+        if (radius < 0) {
+            radius = 1.0;
+        }
         this.radius = radius;
     }
 

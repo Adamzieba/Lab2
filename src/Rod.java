@@ -1,14 +1,16 @@
 public class Rod extends MaterialPoint {
     private double length;
 
+    // Default constructor with reference to superclass
     public Rod() {
         super();
         this.length = 1.0;
     }
 
+    // Parameterized constructor with reference to superclass
     public Rod(double length, double mass) {
         super(mass);
-        this.length = length;
+        this.setLength(length);
     }
 
     public double getLength() {
@@ -16,6 +18,10 @@ public class Rod extends MaterialPoint {
     }
 
     public void setLength(double length) {
+        // Length cannot be less than zero
+        if (length < 0) {
+            length = 1.0;
+        }
         this.length = length;
     }
 
